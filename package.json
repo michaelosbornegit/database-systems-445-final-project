@@ -1,0 +1,22 @@
+{
+  "name": "database-systems-445-final-project",
+  "version": "1.0.0",
+  "description": "database-systems-445-final-project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelosbornegit/database-systems-445-final-project.git"
+  },
+  "author": "Michael Osborne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelosbornegit/database-systems-445-final-project/issues"
+  },
+  "homepage": "https://github.com/michaelosbornegit/database-systems-445-final-project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
