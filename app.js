@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 const path = require('path');
 const bodyParser = require('body-parser');
-const db = require('./utils.js').db;
+const dbUtils = require('./utils.js');
 
 const router = express();
 // router.use(bodyParser.json());
@@ -12,7 +12,7 @@ router.use(express.static('public'));
 
 // query database endpoints
 router.get('/getraces', (req, res) => {
-  db.connect();
+  let db = dbUtils.newConnection();
   db.query('SELECT * FROM RACE', function(error, results, fields) {
     res.send(results);
     db.end();
