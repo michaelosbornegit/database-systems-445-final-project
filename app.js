@@ -13,7 +13,11 @@ router.use(express.static('public'));
 // query database endpoints
 router.get('/getraces', (req, res) => {
   let db = dbUtils.newConnection();
-  db.query('SELECT * FROM RACE as rc inner join TRACK as trc on rc.TrackID = trc.TrackID;', function(error, results, fields) {
+  let options = {
+    sql: 'SELECT * FROM RACE join TRACK on RACE.TrackID = TRACK.TrackID;',
+    nestTables: true,
+  };
+  db.query(options, function(error, results, fields) {
     res.send(results);
     db.end();
   });
