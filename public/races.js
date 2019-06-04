@@ -7,21 +7,25 @@ class Races {
       const json = await response.json(); //extract JSON from the http response
 
       let tableBody = document.getElementById('tableBody');
-      json.forEach((race) => {
+      json.forEach((joinedRow) => {
         const row = document.createElement('tr');
 
-        const name = document.createElement('td');
-        name.innerHTML = race.Name;
+        const raceName = document.createElement('td');
+        raceName.innerHTML = joinedRow.RACE.Name;
+
+        const trackName = document.createElement('td');
+        trackName.innerHTML = joinedRow.TRACK.Name;
 
         const date = document.createElement('td');
-        date.innerHTML = new Date(race.Date).toDateString();
+        date.innerHTML = new Date(joinedRow.RACE.Date).toDateString();
 
-        row.appendChild(name);
+        row.appendChild(raceName);
+        row.appendChild(trackName);
         row.appendChild(date);
 
         tableBody.appendChild(row);
 
-        console.log(race);
+        console.log(joinedRow);
       });
 
       // do something with myJson
