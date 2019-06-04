@@ -12,24 +12,29 @@ router.use(express.static('public'));
 
 // query database endpoints
 router.get('/getraces', (req, res) => {
+  db.connect();
   db.query('SELECT * FROM RACE', function(error, results, fields) {
     res.send(results);
+    db.disconect();
   });
 });
 
 router.get('/getdrivers', (req, res) => {
+  db.connect();
   db.query('SELECT * FROM DRIVER', function(error, results, fields) {
     res.send(results);
   });
 });
 
 router.get('/getcars', (req, res) => {
+  db.connect();
   db.query('SELECT * FROM CAR', function(error, results, fields) {
     res.send(results);
   });
 });
 
 router.get('/gettracks', (req, res) => {
+  db.connect();
   db.query('SELECT * FROM TRACK', function(error, results, fields) {
     res.send(results);
   });
