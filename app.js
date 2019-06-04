@@ -24,7 +24,7 @@ router.get('/getraces', (req, res) => {
 });
 
 router.get('/getdrivers', (req, res) => {
-  db.connect();
+  let db = dbUtils.newConnection();
   db.query('SELECT * FROM DRIVER', function(error, results, fields) {
     res.send(results);
     db.end();
@@ -32,7 +32,7 @@ router.get('/getdrivers', (req, res) => {
 });
 
 router.get('/getcars', (req, res) => {
-  db.connect();
+  let db = dbUtils.newConnection();
   db.query('SELECT * FROM CAR', function(error, results, fields) {
     res.send(results);
     db.end();
@@ -40,7 +40,7 @@ router.get('/getcars', (req, res) => {
 });
 
 router.get('/gettracks', (req, res) => {
-  db.connect();
+  let db = dbUtils.newConnection();
   db.query('SELECT * FROM TRACK', function(error, results, fields) {
     res.send(results);
     db.end();
