@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
 })
 
 app.get('/', (req, res) => {
-  res.sendFIle(path.join(__dirname + '/index.html')
+  res.sendFIle(path.join(__dirname + '/pages/index.html')
 });
 
 /*
