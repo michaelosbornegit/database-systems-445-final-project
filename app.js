@@ -1,24 +1,36 @@
 const express = require('express');
 const mysql = require('mysql');
 const path = require('path');
+const bodyParser = require('body-parser');
+const db = require('./utils.js').db;
 
-const app = express();
+const router = express();
+// router.use(bodyParser.json());
+router.use('/refresh', require('./routes/refresh-database.js'));
 
-const connection = mysql.createConnection({
-  host: process.env.CLEARDB_URL,
-  user: process.env.CLEARDB_USER,
-  password: process.env.CLEARDB_PASSWORD,
-  database: process.env.CLEARDB_DATABASE,
-});
-connection.connect();
-
-
-app.get('/', (req, res) => {
-  // res.sendFile(path.join(__dirname + '/pages/index.html'));
-  connection.query('SELECT * FROM DRIVER', function(error, results, fields) {
+// query database endpoints
+router.get('/getraces', (req, res) => {
+  db.query('SELECT * FROM DRIVER', function(error, results, fields) {
     res.send(results);
   });
 });
+
+
+
+// serving webpages
+router.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/pages/index.html'));
+});
+
+router.get('/races', (req, res) => {
+  res.sendFile(path.join(__dirname + '/pages/races.html'));
+});
+
+
+
+// router.get('/refresh', (req, res) => {
+//
+// })
 
 /*
  * Heroku will assign a port you can use via the 'PORT' environment variable
@@ -30,6 +42,6 @@ app.get('/', (req, res) => {
  * let port; = process.env.PORT;
  * if(port == null) {port = 5000}
  */
-app.listen(process.env.PORT || 5000, () => {
+router.listen(process.env.PORT || 5000, () => {
   console.log("Server up and running on port: " + (process.env.PORT || 5000));
 });
