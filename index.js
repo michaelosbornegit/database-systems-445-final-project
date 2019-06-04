@@ -1,8 +1,17 @@
-const express = require('express')
-const app = express()
-const port = process.env.port || 3000;
+const express = require('express');
+const mysql = require('mysql');
 
-app.get('/', (req, res) => res.send('Hello World!'))
+const app = express();
+const connection = mysql.createConnection({
+  host: process.env.CLEARDB_URL,
+  user: process.env.CLEARDB_USER,
+  password: process.env.CLEARDB_PASSWORD,
+  database: process.env.CLEARDB_DATABASE,
+})
+
+app.get('/', (req, res) => {
+  res.sendFIle(path.join(__dirname + '/index.html')
+});
 
 /*
  * Heroku will assign a port you can use via the 'PORT' environment variable
