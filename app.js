@@ -1,16 +1,23 @@
 const express = require('express');
 const mysql = require('mysql');
+const path = require('path');
 
 const app = express();
+
 const connection = mysql.createConnection({
   host: process.env.CLEARDB_URL,
   user: process.env.CLEARDB_USER,
   password: process.env.CLEARDB_PASSWORD,
   database: process.env.CLEARDB_DATABASE,
-})
+});
+connection.connect();
+
 
 app.get('/', (req, res) => {
-  res.sendFIle(path.join(__dirname + '/pages/index.html'));
+  // res.sendFile(path.join(__dirname + '/pages/index.html'));
+  connection.query('SELECT * FROM DRIVER', function(error, results, fields) {
+    res.send(results);
+  });
 });
 
 /*
