@@ -20,6 +20,8 @@ class Races {
         row.appendChild(date);
 
         tableBody.appendChild(row);
+
+        console.log(race);
       });
 
       // do something with myJson
