@@ -1,5 +1,6 @@
 class Races {
   constructor() {
+
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
     const userAction = async () => {
@@ -27,6 +28,11 @@ class Races {
 
         console.log(joinedRow);
       });
+
+      // show the table now that it loaded!
+      document.getElementById('loading').style.display = 'none'
+      document.getElementById('mainContent').style.display = 'block'
+
 
       // do something with myJson
     }
