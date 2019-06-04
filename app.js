@@ -6,7 +6,9 @@ const db = require('./utils.js').db;
 
 const router = express();
 // router.use(bodyParser.json());
-router.use('/refresh', require('./routes/refresh-database.js'));
+// router.use('/refresh', require('./routes/refresh-database.js'));
+// serve static webpages statically
+router.use(express.static('public'));
 
 // query database endpoints
 router.get('/getraces', (req, res) => {
@@ -18,13 +20,13 @@ router.get('/getraces', (req, res) => {
 
 
 // serving webpages
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/pages/index.html'));
-});
-
-router.get('/races', (req, res) => {
-  res.sendFile(path.join(__dirname + '/pages/races.html'));
-});
+// router.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/pages', 'index.html'));
+// });
+//
+// router.get('/races', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/pages', 'races.html'));
+// });
 
 
 
