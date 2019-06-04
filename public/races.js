@@ -1,6 +1,6 @@
 class Races {
   constructor() {
-    let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    let proxyUrl = 'https://tranquil-ocean-55200.herokuapp.com/';
 
     const userAction = async () => {
       const response = await fetch(proxyUrl + 'https://osbornem-database-project.herokuapp.com/getraces');
