@@ -11,6 +11,13 @@ class Races {
       json.forEach((joinedRow) => {
         const row = document.createElement('tr');
 
+        sessionStorage.setItem(joinedRow.RACE.RaceID, JSON.stringify(joinedRow));
+
+        row.addEventListener('click', () => {
+          sessionStorage.setItem('selectedRace', joinedRow.RACE.RaceID);
+          window.location.assign('/single-race-view.html');
+        });
+
         const raceName = document.createElement('td');
         raceName.innerHTML = joinedRow.RACE.Name;
 
@@ -18,7 +25,7 @@ class Races {
         trackName.innerHTML = joinedRow.TRACK.Name;
 
         const date = document.createElement('td');
-        date.innerHTML = new Date(joinedRow.RACE.Date).toDateString();
+        date.innerHTML = new Date(joinedRow.RACE.Date.substring(0, 10)).toDateString();
 
         row.appendChild(raceName);
         row.appendChild(trackName);
@@ -29,12 +36,9 @@ class Races {
         console.log(joinedRow);
       });
 
-      // show the table now that it loaded!
+      // show the table now that its populated!
       document.getElementById('loading').style.display = 'none'
       document.getElementById('mainContent').style.display = 'block'
-
-
-      // do something with myJson
     }
 
     userAction();

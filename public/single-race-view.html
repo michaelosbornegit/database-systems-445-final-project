@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script type="text/javascript" src="single-race-view.js"></script>
+</head>
+
+<body>
+  <nav class="nav-extended blue">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">NASCAR StatHub</a>
+    </div>
+    <div class='container'>
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a href="index.html">Home</a></li>
+          <li class="tab active"><a class="active" href="races.html">Races</a></li>
+          <li class="tab"><a href="drivers.html">Drivers</a></li>
+          <li class="tab"><a href="tracks.html">Tracks</a></li>
+          <li class="tab"><a href="cars.html">Cars</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div id='mainContent'>
+      <div class="row">
+        <h5 id="raceName"></h5>
+      </div>
+      <div class="row">
+        <h6 class='left' style='font-weight:bold; margin-right:10px;'>Date:</h6>
+        <h6 class='left' id="date"></h6>
+      </div>
+      <div class="row">
+        <h6 class='left' style='font-weight:bold; margin-right:10px;'>Track Name:</h6>
+        <h6 class='left' id="trackName"></h6>
+      </div>
+      <div class="row">
+        <h6 class='left' style='font-weight:bold; margin-right:10px;'>Laps:</h6>
+        <h6 class='left' id="laps"></h6>
+      </div>
+      <div class="row">
+        <h6 class='left' style='font-weight:bold; margin-right:10px;'>Elapsed Time:</h6>
+        <h6 class='left' id="elapsedTime"></h6>
+      </div>
+      <div class="row">
+        <h6 class='left' style='font-weight:bold; margin-right:10px;'>Lead Changes:</h6>
+        <h6 class='left' id="leadChanges"></h6>
+      </div>
+      <div class="row">
+        <h6 class='left' style='font-weight:bold; margin-right:10px;'>Victory Margin:</h6>
+        <h6 class='left' id="victoryMargin"></h6>
+      </div>
+      <div class="row">
+        <h6 class='left' style='font-weight:bold; margin-right:10px;'>Average Speed:</h6>
+        <h6 class='left' id="averageSpeed"></h6>
+      </div>
+      <div class="row">
+        <h6 class='left' style='font-weight:bold; margin-right:10px;'>Comments (if present):</h6>
+        <h6 class='left' id="comments"></h6>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

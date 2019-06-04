@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script type="text/javascript" src="races.js"></script>
+</head>
+
+<body>
+  <nav class="nav-extended blue">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">NASCAR StatHub</a>
+    </div>
+    <div class='container'>
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a href="index.html">Home</a></li>
+          <li class="tab"><a href="races.html">Races</a></li>
+          <li class="tab"><a href="drivers.html">Drivers</a></li>
+          <li class="tab"><a href="tracks.html">Tracks</a></li>
+          <li class="tab"><a class="active" href="cars.html">Cars</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div id='loading'>
+      <div class="row">
+        <h5>Loading...</h5>
+      </div>
+      <div class="row">
+        <p>
+          I am using a free-tier backend hosted by heroku, this will take about 30 seconds
+          if the app is currently sleeping but will be fast after that!! Sorry for the wait!
+        </p>
+      </div>
+      <div class="row">
+        <div class="div col s8 offset-s2">
+          <div class="progress">
+            <div class="indeterminate"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id='mainContent' style='display:none;'>
+      <h5>Click on a race for more information.</h5>
+      <table>
+        <thead>
+          <tr>
+            <th>Race Name</th>
+            <th>Track Name</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+
+        <tbody id="tableBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>
