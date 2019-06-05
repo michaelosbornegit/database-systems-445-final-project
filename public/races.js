@@ -8,10 +8,12 @@ class Races {
       const json = await response.json(); //extract JSON from the http response
 
       let tableBody = document.getElementById('tableBody');
+
       json.forEach((joinedRow) => {
         const row = document.createElement('tr');
 
         sessionStorage.setItem(joinedRow.RACE.RaceID, JSON.stringify(joinedRow));
+        sessionStorage.setItem(joinedRow.TRACK.TrackID, JSON.stringify(joinedRow.TRACK));
 
         row.addEventListener('click', () => {
           sessionStorage.setItem('selectedRace', joinedRow.RACE.RaceID);

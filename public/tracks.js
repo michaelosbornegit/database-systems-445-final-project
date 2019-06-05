@@ -12,26 +12,26 @@ class Tracks {
       json.forEach((joinedRow) => {
         const row = document.createElement('tr');
 
-        sessionStorage.setItem(joinedRow.car.Number, JSON.stringify(joinedRow));
+        sessionStorage.setItem(joinedRow.TrackID, JSON.stringify(joinedRow));
 
         row.addEventListener('click', () => {
-          sessionStorage.setItem('selectedCar', joinedRow.car.Number);
+          sessionStorage.setItem('selectedTrack', joinedRow.TrackID);
           // console.log(location.pathname.substring(0, location.pathname.length - 'cars.html'.length));
-          window.location.assign(location.pathname.substring(0, location.pathname.length - 'cars.html'.length) + 'single-car-all-info-view.html');
+          window.location.assign(location.pathname.substring(0, location.pathname.length - 'tracks.html'.length) + 'single-track-view.html');
         });
 
-        const carNum = document.createElement('td');
-        carNum.innerHTML = joinedRow.car.Number;
+        const state = document.createElement('td');
+        state.innerHTML = joinedRow.State;
 
-        const driverName = document.createElement('td');
-        driverName.innerHTML = joinedRow.driver.FirstName + ' ' + joinedRow.driver.LastName;
+        const trackName = document.createElement('td');
+        trackName.innerHTML = joinedRow.Name;
 
-        const teamName = document.createElement('td');
-        teamName.innerHTML = joinedRow.team.Name;
+        const shape = document.createElement('td');
+        shape.innerHTML = joinedRow.Shape;
 
-        row.appendChild(carNum);
-        row.appendChild(driverName);
-        row.appendChild(teamName);
+        row.appendChild(state);
+        row.appendChild(trackName);
+        row.appendChild(shape);
 
         tableBody.appendChild(row);
 

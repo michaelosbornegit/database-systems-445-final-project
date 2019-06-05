@@ -1,6 +1,11 @@
 class SingleRaceView {
   constructor() {
     const data = JSON.parse(sessionStorage.getItem(sessionStorage.getItem('selectedRace')));
+
+    document.getElementById('trackButton').addEventListener('click', () => {
+        window.location.assign(location.pathname.substring(0, location.pathname.length - 'single-race-view.html'.length) + 'single-track-view.html');
+    });
+
     document.getElementById('raceName').innerHTML = data.RACE.Name;
     document.getElementById('date').innerHTML = new Date(data.RACE.Date.substring(0, 10)).toDateString();
     document.getElementById('trackName').innerHTML = data.TRACK.Name;
