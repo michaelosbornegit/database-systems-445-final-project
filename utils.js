@@ -1,3 +1,5 @@
+// Utilities for use with backend
+
 const mysql = require('mysql');
 
 const newConnection = () => {

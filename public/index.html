@@ -3,6 +3,8 @@
 
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script type="text/javascript" src="index.js"></script>
 </head>
 
@@ -25,8 +27,53 @@
   </nav>
 
   <div class="container">
-    <h2 class="center-align" id='response display'>Welcome to NASCAR StatHub!</h2>
+    <div class="row">
+      <h2 class="center-align" id='response display'>Welcome to NASCAR StatHub!</h2>
+    </div>
+    <div class="row">
+      <h6>Leave your comments! (visible to everyone, please be nice)</h6>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        Name:
+        <div class="input-field inline">
+          <input id="name_input" type="text" data-length="40">
+          <label for="name_input">Name</label>
+        </div>
+      </div>
+      <div class="col s6">
+        Favorite Driver:
+        <div class="input-field inline">
+          <input id="driver_input" type="text" data-length="40">
+          <label for="driver_input">Driver</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h6>Comments:</h6>
+      <div class="col s12">
+        <textarea id="comments_input" class="materialize-textarea" type="text" data-length="225"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s1 offset-s11">
+        <a id="submitButton" class="left waves-effect waves-light btn blue">Submit</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <h6>Heres what other people had to say</h6>
+    </div>
+    <div id:"response-area">
+
+    </div>
   </div>
+
+  <script>
+    $(document).ready(function() {
+      $('input#name_input, input#driver_input, textarea#comments_input').characterCounter();
+    });
+  </script>
 
 </body>
 

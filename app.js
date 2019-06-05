@@ -1,3 +1,6 @@
+// This program hosts a nodejs webserver using express for a nascar statistics
+// fan app.
+
 const express = require('express');
 const mysql = require('mysql');
 const path = require('path');
@@ -51,8 +54,6 @@ router.get('/gettracks', (req, res) => {
 
 router.post('/getraceresults', (req, res) => {
   let db = dbUtils.newConnection();
-  console.log(req.body);
-  console.log(req.body.raceID);
   let options = {
     sql: 'SELECT DISTINCT * FROM car, `result`, team_car_relationship, team, car_owner_car_relationship, car_owner, manufacturer_car_relationship, manufacturer, driver_car_relationship, driver\
           WHERE car.CarID = team_car_relationship.CarID AND team.TeamID = team_car_relationship.TeamID\
