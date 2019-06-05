@@ -7,6 +7,7 @@ const dbUtils = require('./utils.js');
 const router = express();
 // serve static webpages statically
 router.use(express.static('public'));
+router.use(bodyParser.json());
 
 // endpoints
 router.get('/getraces', (req, res) => {
