@@ -39,22 +39,16 @@ router.get('/getallcarinformation', (req, res) => {
   });
 });
 
-
-
-// serving webpages
-// router.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '/pages', 'index.html'));
-// });
-//
-// router.get('/races', (req, res) => {
-//   res.sendFile(path.join(__dirname, '/pages', 'races.html'));
-// });
-
-
-
-// router.get('/refresh', (req, res) => {
-//
-// })
+router.get('/gettracks', (req, res) => {
+  let db = dbUtils.newConnection();
+  let options = {
+    sql: 'SELECT * FROM TRACK',
+  };
+  db.query(options, function(error, results, fields) {
+    res.send(results);
+    db.end();
+  });
+});
 
 /*
  * Heroku will assign a port you can use via the 'PORT' environment variable

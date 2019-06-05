@@ -1,4 +1,4 @@
-class Cars {
+class Drivers {
   constructor() {
 
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -17,21 +17,25 @@ class Cars {
         row.addEventListener('click', () => {
           sessionStorage.setItem('selectedCar', joinedRow.car.Number);
           // console.log(location.pathname.substring(0, location.pathname.length - 'cars.html'.length));
-          window.location.assign(location.pathname.substring(0, location.pathname.length - 'cars.html'.length) + 'single-car-all-info-view.html');
+          window.location.assign(location.pathname.substring(0, location.pathname.length - 'drivers.html'.length) + 'single-car-all-info-view.html');
         });
-
-        const carNum = document.createElement('td');
-        carNum.innerHTML = joinedRow.car.Number;
 
         const driverName = document.createElement('td');
         driverName.innerHTML = joinedRow.driver.FirstName + ' ' + joinedRow.driver.LastName;
 
+        const carNum = document.createElement('td');
+        carNum.innerHTML = joinedRow.car.Number;
+
         const teamName = document.createElement('td');
         teamName.innerHTML = joinedRow.team.Name;
+
+        const rookieYear = document.createElement('td');
+        rookieYear.innerHTML = joinedRow.driver.RookieYear;
 
         row.appendChild(carNum);
         row.appendChild(driverName);
         row.appendChild(teamName);
+        row.appendChild(rookieYear);
 
         tableBody.appendChild(row);
 
@@ -48,4 +52,4 @@ class Cars {
 }
 
 // kick off the whole thing
-const globalScope = new Cars();
+const globalScope = new Drivers();

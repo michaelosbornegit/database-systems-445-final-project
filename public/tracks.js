@@ -1,10 +1,10 @@
-class Cars {
+class Tracks {
   constructor() {
 
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
     const userAction = async () => {
-      const response = await fetch(proxyUrl + 'https://osbornem-database-project.herokuapp.com/getallcarinformation');
+      const response = await fetch(proxyUrl + 'https://osbornem-database-project.herokuapp.com/gettracks');
       const json = await response.json(); //extract JSON from the http response
       console.log(json);
 
@@ -48,4 +48,4 @@ class Cars {
 }
 
 // kick off the whole thing
-const globalScope = new Cars();
+const globalScope = new Tracks();

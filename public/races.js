@@ -15,6 +15,7 @@ class Races {
 
         row.addEventListener('click', () => {
           sessionStorage.setItem('selectedRace', joinedRow.RACE.RaceID);
+          sessionStorage.setItem('selectedTrack', joinedRow.TRACK.TrackID);
           window.location.assign(location.pathname.substring(0, location.pathname.length - 'races.html'.length) + 'single-race-view.html');
         });
 
