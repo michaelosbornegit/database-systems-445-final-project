@@ -71,6 +71,18 @@ router.post('/getraceresults', (req, res) => {
   });
 });
 
+router.post('/postcomment', (req, res) => {
+  let db = dbUtils.newConnection();
+  let options = {
+    sql: `SELECT * FROM COMMENTS`,
+  };
+  db.query(options, function(error, results, fields) {
+    console.log(results);
+    res.send(results);
+    db.end();
+  });
+});
+
 /*
  * Heroku will assign a port you can use via the 'PORT' environment variable
  * To accesss an environment variable, use process.env.<ENV>
