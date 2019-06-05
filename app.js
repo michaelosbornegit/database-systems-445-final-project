@@ -59,7 +59,8 @@ router.post('/getraceresults', (req, res) => {
           and car.CarID = manufacturer_car_relationship.CarID and manufacturer.ManufacturerID = manufacturer_car_relationship.ManufacturerID\
           and car.CarID = car_owner_car_relationship.CarID and car_owner_car_relationship.OwnerID = car_owner.OwnerID\
           and car.CarID = driver_car_relationship.CarID and driver_car_relationship.DriverID = driver.DriverID\
-          and car.CarID = `result`.CarID and `result`.RaceID="' + req.body.raceID + '";',
+          and car.CarID = `result`.CarID and `result`.RaceID="' + req.body.raceID + '"\
+          ORDER BY FinishPosition ASC;',
     nestTables: true,
   };
   db.query(options, function(error, results, fields) {
