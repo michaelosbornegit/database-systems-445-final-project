@@ -62,7 +62,7 @@ router.post('/getraceresults', (req, res) => {
     nestTables: true,
   };
   db.query(options, function(error, results, fields) {
-    log(results);
+    console.log(results);
     res.send(results);
     db.end();
   });
