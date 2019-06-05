@@ -50,6 +50,8 @@ router.get('/gettracks', (req, res) => {
 
 router.post('/getraceresults', (req, res) => {
   let db = dbUtils.newConnection();
+  console.log(req);
+  console.log(req.raceID);
   let options = {
     sql: 'SELECT DISTINCT * FROM car, `result`, team_car_relationship, team, car_owner_car_relationship, car_owner, manufacturer_car_relationship, manufacturer, driver_car_relationship, driver\
           WHERE car.CarID = team_car_relationship.CarID AND team.TeamID = team_car_relationship.TeamID\
@@ -60,6 +62,7 @@ router.post('/getraceresults', (req, res) => {
     nestTables: true,
   };
   db.query(options, function(error, results, fields) {
+    log(results);
     res.send(results);
     db.end();
   });
