@@ -74,7 +74,7 @@ router.post('/getraceresults', (req, res) => {
 router.post('/postcomment', (req, res) => {
   let db = dbUtils.newConnection();
   let options = {
-    sql: `SELECT * FROM COMMENTS`,
+    sql: `SELECT * FROM COMMENT`,
   };
   db.query(options, function(error, results, fields) {
     console.log(results);

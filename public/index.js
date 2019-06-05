@@ -13,7 +13,7 @@ class Index {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              raceID: data.RACE.RaceID,
+              
             }),
           }).then(response => response.json())
           .then(response => {
@@ -71,14 +71,14 @@ class Index {
 
 
             // show the table now that its populated!
-            document.getElementById('loading').style.display = 'none'
-            document.getElementById('mainContent').style.display = 'block'
+            // document.getElementById('loading').style.display = 'none'
+            // document.getElementById('mainContent').style.display = 'block'
           }).catch(error => console.error('error: ', error));
       }
-      }
-    })
+    });
   }
 }
+
 
 window.onload = () => {
   const globalScope = new Index();
