@@ -19,13 +19,32 @@
           <li class="tab"><a href="drivers.html">Drivers</a></li>
           <li class="tab"><a href="tracks.html">Tracks</a></li>
           <li class="tab"><a href="cars.html">Cars</a></li>
+          <li class="tab"><a href="results.html">Results</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <div class="container">
-    <div id='mainContent'>
+    <div id='loading'>
+      <div class="row">
+        <h5>Loading...</h5>
+      </div>
+      <div class="row">
+        <p>
+          I am using a free-tier backend hosted by heroku, this will take about 30 seconds
+          if the app is currently sleeping but will be fast after that!! Sorry for the wait!
+        </p>
+      </div>
+      <div class="row">
+        <div class="div col s8 offset-s2">
+          <div class="progress">
+            <div class="indeterminate"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id='mainContent' style='display:none;'>
       <div class="row">
         <h5 id="raceName"></h5>
       </div>
@@ -64,6 +83,26 @@
       </div>
     </div>
   </div>
+  <h5>Results:</h5>
+  <table>
+    <thead>
+      <tr>
+        <th>Place</th>
+        <th>Driver</th>
+        <th>Car #</th>
+        <th>Start Pos.</th>
+        <th>Best Lap Time</th>
+        <th>Best Lap Speed</th>
+        <th>Points</th>
+        <th>Finish Status</th>
+        <th>Laps Completed</th>
+
+      </tr>
+    </thead>
+
+    <tbody id="tableBody">
+    </tbody>
+  </table>
 
 </body>
 
