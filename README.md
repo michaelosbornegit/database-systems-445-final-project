@@ -43,7 +43,7 @@ As a requirement for this project, a form of test cases are included. To elimina
 
 To view these, just open up your development console (the F12 key in Chrome) and monitor for output as you click on the pages. The code checks for specific responses to some of the queries and reports whether or not it was found to the console. `XXXXX FOUND, Test passed!` being printed to the console is good, `XXX NOT FOUND, TEST FAILED!` is bad.
 
-Test cases are provided for all top level queries (HOME, RACES, DRIVERS, TRACKS, and CARS tabs)
+Test cases are provided for all top level queries (HOME, RACES, DRIVERS, TRACKS, and CARS tabs). Just inspect the JavaScript files for those pages to see how the test cases are implemented (e.g. `drivers.js`).
 
 ---
 
