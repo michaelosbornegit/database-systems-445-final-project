@@ -82,6 +82,17 @@ router.post('/postcomment', (req, res) => {
   });
 });
 
+router.get('/getcomments', (req, res) => {
+  let db = dbUtils.newConnection();
+  let options = {
+    sql: 'SELECT * FROM RACEFAN',
+  };
+  db.query(options, function(error, results, fields) {
+    res.send(results);
+    db.end();
+  });
+});
+
 /*
  * Heroku will assign a port you can use via the 'PORT' environment variable
  * To accesss an environment variable, use process.env.<ENV>
