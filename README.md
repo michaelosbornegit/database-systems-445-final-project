@@ -6,8 +6,6 @@ This repository contains both the front-end code for the web pages (in the `publ
 
 The website: [https://michaelosbornegit.github.io/database-systems-445-final-project/public/index.html](https://michaelosbornegit.github.io/database-systems-445-final-project/public/index.html)
 
----
-
 ## Functionality
 
 This web page displays information about the current NASCAR season:
@@ -27,8 +25,6 @@ Queries from multiple database tables are combined in the single race view.
 
 In terms of the backend, all the action happens in `app.js`, that is where you should go to inspect my queries.
 
----
-
 ## Running the Code
 
 If you want to host the server locally:
@@ -40,8 +36,6 @@ If you want to host the server locally:
 5. Run `node app.js` to start the web service
 6. In your web browser navigate to `localhost:5000`
 7. Thats it!
-
----
 
 ## Test cases
 
