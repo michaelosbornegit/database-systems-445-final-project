@@ -15,6 +15,7 @@ class Cars {
       let found = false;
 
       json.forEach((joinedRow) => {
+        // construct the table entries from the response
         const row = document.createElement('tr');
 
         sessionStorage.setItem(joinedRow.car.Number, JSON.stringify(joinedRow));

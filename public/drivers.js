@@ -15,6 +15,7 @@ class Drivers {
       let found = false;
 
       json.forEach((joinedRow) => {
+        // construct the table elements for the drivers
         const row = document.createElement('tr');
 
         sessionStorage.setItem(joinedRow.car.Number, JSON.stringify(joinedRow));
@@ -28,6 +29,7 @@ class Drivers {
         const driverName = document.createElement('td');
         driverName.innerHTML = joinedRow.driver.FirstName + ' ' + joinedRow.driver.LastName;
 
+        // test case
         if (joinedRow.driver.DriverID == '9d18716c-fd73-48d4-b3da-44228c767b84') {
           found = true;
         }
@@ -49,6 +51,7 @@ class Drivers {
         tableBody.appendChild(row);
       });
 
+      // report test case
       if (found) {
         console.log('DRIVER ID 9d18716c-fd73-48d4-b3da-44228c767b84 FOUND, test passed!');
       } else {
