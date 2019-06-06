@@ -43,7 +43,7 @@ If you want to host the server locally:
 
 ## Test cases
 
-As a requirement for this project, a form of test cases are included. To eliminate the need to download anything, test cases are run on the responses from queries as the user navigates the webpage. This achieves the same thing as a file you would run separately, but makes it so you don't have to.
+As a requirement for this project, a form of test cases are included. To eliminate the need to download anything, test cases are run on the responses from queries as the user navigates the webpage. This achieves the same thing as a file you would run separately, but makes it so you don't have to go to the hassle of downloading anything.
 
 To view these, just open up your development console (the F12 key in Chrome) and monitor for output as you click on the pages. The code checks for specific responses to some of the queries and reports whether or not it was found to the console. `XXXXX FOUND, Test passed!` being printed to the console is good, `XXX NOT FOUND, TEST FAILED!` is bad.
 
