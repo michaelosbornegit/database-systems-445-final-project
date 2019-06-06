@@ -43,7 +43,7 @@ class Index {
           col.className = 'col s12';
 
           let divCard = document.createElement("div");
-          divCard.className = 'car blue-grey darken-2';
+          divCard.className = 'card blue-grey darken-2';
 
           let cardContent = document.createElement("div");
           cardContent.className = 'card-content white-text';
