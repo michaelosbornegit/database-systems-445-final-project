@@ -1,5 +1,8 @@
+// this file contains the javascript logic to display all info for a single car in the nascar app
+
 class SingleCarAllInfoView {
   constructor() {
+    // populate all fields
     const data = JSON.parse(sessionStorage.getItem(sessionStorage.getItem('selectedCar')));
     document.getElementById('driverName').innerHTML = data.driver.FirstName + ' ' + data.driver.LastName;
     document.getElementById('number').innerHTML = data.car.Number;
@@ -12,6 +15,7 @@ class SingleCarAllInfoView {
   }
 }
 
+// wait until window loads to start to avoid race conditions
 window.onload = () => {
   const globalScope = new SingleCarAllInfoView();
 }

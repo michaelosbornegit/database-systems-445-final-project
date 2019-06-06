@@ -8,11 +8,15 @@ const bodyParser = require('body-parser');
 const dbUtils = require('./utils.js');
 
 const router = express();
+
 // serve static webpages statically
 router.use(express.static('public'));
 router.use(bodyParser.json());
 
-// endpoints
+// ENDPOINTS
+
+// Queries the database and returns all of the race information as well as the
+// track information that they were raced on
 router.get('/getraces', (req, res) => {
   let db = dbUtils.newConnection();
   let options = {
@@ -25,6 +29,8 @@ router.get('/getraces', (req, res) => {
   });
 });
 
+// Queries the database and returns A LOT of information about everything related to each car,
+// driver, manufacturer, owner, and team.
 router.get('/getallcarinformation', (req, res) => {
   let db = dbUtils.newConnection();
   let options = {
@@ -41,6 +47,7 @@ router.get('/getallcarinformation', (req, res) => {
   });
 });
 
+// Queries the database and returns information about all of the tracks
 router.get('/gettracks', (req, res) => {
   let db = dbUtils.newConnection();
   let options = {
@@ -52,6 +59,8 @@ router.get('/gettracks', (req, res) => {
   });
 });
 
+// Queries the database and not only gets information about the results for a specific race,
+// but also gets specific information for all racers results in that race
 router.post('/getraceresults', (req, res) => {
   let db = dbUtils.newConnection();
   let options = {
@@ -71,6 +80,19 @@ router.post('/getraceresults', (req, res) => {
   });
 });
 
+// queries the database for all race fan information and returns it
+router.get('/getcomments', (req, res) => {
+  let db = dbUtils.newConnection();
+  let options = {
+    sql: 'SELECT * FROM RACEFAN',
+  };
+  db.query(options, function(error, results, fields) {
+    res.send(results);
+    db.end();
+  });
+});
+
+// queries the database, inserting a new comment.
 router.post('/postcomment', (req, res) => {
   let db = dbUtils.newConnection();
   let options = {
@@ -82,16 +104,6 @@ router.post('/postcomment', (req, res) => {
   });
 });
 
-router.get('/getcomments', (req, res) => {
-  let db = dbUtils.newConnection();
-  let options = {
-    sql: 'SELECT * FROM RACEFAN',
-  };
-  db.query(options, function(error, results, fields) {
-    res.send(results);
-    db.end();
-  });
-});
 
 /*
  * Heroku will assign a port you can use via the 'PORT' environment variable

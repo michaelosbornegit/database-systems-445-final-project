@@ -1,14 +1,19 @@
+// This file is javascript logic for the driver list display page in the NASCAR app
+
 class Drivers {
   constructor() {
 
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
+    // connect to fetch driver information
     const userAction = async () => {
       const response = await fetch(proxyUrl + 'https://osbornem-database-project.herokuapp.com/getallcarinformation');
       const json = await response.json(); //extract JSON from the http response
-      console.log(json);
 
       let tableBody = document.getElementById('tableBody');
+
+      let found = false;
+
       json.forEach((joinedRow) => {
         const row = document.createElement('tr');
 
@@ -22,6 +27,10 @@ class Drivers {
 
         const driverName = document.createElement('td');
         driverName.innerHTML = joinedRow.driver.FirstName + ' ' + joinedRow.driver.LastName;
+
+        if (joinedRow.driver.DriverID == '9d18716c-fd73-48d4-b3da-44228c767b84') {
+          found = true;
+        }
 
         const carNum = document.createElement('td');
         carNum.innerHTML = joinedRow.car.Number;
@@ -38,9 +47,13 @@ class Drivers {
         row.appendChild(rookieYear);
 
         tableBody.appendChild(row);
-
-        console.log(joinedRow);
       });
+
+      if (found) {
+        console.log('DRIVER ID 9d18716c-fd73-48d4-b3da-44228c767b84 FOUND, test passed!');
+      } else {
+        console.log('DRIVER ID 9d18716c-fd73-48d4-b3da-44228c767b84 NOT FOUND, test FAILED!');
+      }
 
       // show the table now that its populated!
       document.getElementById('loading').style.display = 'none'

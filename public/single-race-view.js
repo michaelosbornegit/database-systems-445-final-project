@@ -1,11 +1,15 @@
+// this file contains the javascript logic to display the information for a single race
+
 class SingleRaceView {
   constructor() {
     const data = JSON.parse(sessionStorage.getItem(sessionStorage.getItem('selectedRace')));
 
+    // add listener to button to view track info
     document.getElementById('trackButton').addEventListener('click', () => {
       window.location.assign(location.pathname.substring(0, location.pathname.length - 'single-race-view.html'.length) + 'single-track-view.html');
     });
 
+    // populate fields
     document.getElementById('raceName').innerHTML = data.RACE.Name;
     document.getElementById('date').innerHTML = new Date(data.RACE.Date.substring(0, 10)).toDateString();
     document.getElementById('trackName').innerHTML = data.TRACK.Name;
@@ -16,6 +20,7 @@ class SingleRaceView {
     document.getElementById('averageSpeed').innerHTML = data.RACE.AverageSpeed;
     document.getElementById('comments').innerHTML = data.RACE.Comments;
 
+    // access endpoint for racer result information
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     fetch(proxyUrl + 'https://osbornem-database-project.herokuapp.com/getraceresults', {
         method: 'POST',
@@ -36,6 +41,7 @@ class SingleRaceView {
             window.location.assign(location.pathname.substring(0, location.pathname.length - 'races.html'.length) + 'single-race-view.html');
           });
 
+          // populate table with recieved values
           const place = document.createElement('td');
           place.innerHTML = joinedRow.result.FinishPosition;
 
@@ -79,7 +85,6 @@ class SingleRaceView {
         });
 
 
-
         // show the table now that its populated!
         document.getElementById('loading').style.display = 'none'
         document.getElementById('mainContent').style.display = 'block'
@@ -87,6 +92,7 @@ class SingleRaceView {
   }
 }
 
+// only execute after loading to avoid race conditions
 window.onload = () => {
   const globalScope = new SingleRaceView();
 }

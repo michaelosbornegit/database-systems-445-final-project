@@ -2,6 +2,7 @@
 
 const mysql = require('mysql');
 
+// create and return a reference to a new database
 const newConnection = () => {
   let db = mysql.createConnection({
     host: process.env.CLEARDB_URL,

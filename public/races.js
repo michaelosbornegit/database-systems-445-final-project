@@ -1,14 +1,20 @@
+// This file contains the javascript logic for the race view inside the nascar app
+
 class Races {
   constructor() {
 
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
+    // call the endpoint for race information
     const userAction = async () => {
       const response = await fetch(proxyUrl + 'https://osbornem-database-project.herokuapp.com/getraces');
       const json = await response.json(); //extract JSON from the http response
 
       let tableBody = document.getElementById('tableBody');
 
+      let found = false;
+
+      // create the table elements
       json.forEach((joinedRow) => {
         const row = document.createElement('tr');
 
@@ -24,6 +30,10 @@ class Races {
         const raceName = document.createElement('td');
         raceName.innerHTML = joinedRow.RACE.Name;
 
+        if (joinedRow.RACE.Name == 'DAYTONA 500') {
+          found = true;
+        }
+
         const trackName = document.createElement('td');
         trackName.innerHTML = joinedRow.TRACK.Name;
 
@@ -35,9 +45,13 @@ class Races {
         row.appendChild(date);
 
         tableBody.appendChild(row);
-
-        console.log(joinedRow);
       });
+
+      if (found) {
+        console.log('DAYTONA 500 FOUND! test passed');
+      } else {
+        console.log('DAYTONA 500 NOT FOUND! TEST FAILED');
+      }
 
       // show the table now that its populated!
       document.getElementById('loading').style.display = 'none'
