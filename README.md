@@ -25,6 +25,8 @@ There is also funcionality to leave comments on the homepage which inserts data 
 
 Queries from multiple database tables are combined in the single race view.
 
+In terms of the backend, all the action happens in `app.js`, that is where you should go to inspect my queries.
+
 ---
 
 ## Running the Code
@@ -46,6 +48,8 @@ If you want to host the server locally:
 As a requirement for this project, a form of test cases are included. To eliminate the need to download anything, test cases are run on the responses from queries as the user navigates the webpage. This achieves the same thing as a file you would run separately, but makes it so you don't have to go to the hassle of downloading anything.
 
 To view these, just open up your development console (the F12 key in Chrome) and monitor for output as you click on the pages. The code checks for specific responses to some of the queries and reports whether or not it was found to the console. `XXXXX FOUND, Test passed!` being printed to the console is good, `XXX NOT FOUND, TEST FAILED!` is bad.
+
+Test cases are provided for all top level queries (HOME, RACES, DRIVERS, TRACKS, and CARS tabs)
 
 ---
 
