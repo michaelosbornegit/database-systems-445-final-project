@@ -74,11 +74,10 @@ router.post('/getraceresults', (req, res) => {
 router.post('/postcomment', (req, res) => {
   let db = dbUtils.newConnection();
   let options = {
-    sql: `SELECT * FROM COMMENT`,
+    sql: `INSERT INTO RACEFAN (Name, FavoriteRacer, Comments) VALUES ("` + req.body.name + '", "' + req.body.favDriver + '", "' + req.body.comment + '");',
   };
   db.query(options, function(error, results, fields) {
-    console.log(results);
-    res.send(results);
+    res.send('success');
     db.end();
   });
 });

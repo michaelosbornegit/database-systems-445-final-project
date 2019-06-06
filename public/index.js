@@ -13,7 +13,9 @@ class Index {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              
+              name: name.value,
+              favDriver: favDriver.value,
+              comment: comment.value,
             }),
           }).then(response => response.json())
           .then(response => {
